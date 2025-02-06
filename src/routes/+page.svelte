@@ -61,7 +61,7 @@
             sending = false;
             setTimeout(() => {
                 sendingMessage = 'Send Sonnet';
-            }, 3000);
+            }, 2000);
         }
     }
 </script>
@@ -73,7 +73,7 @@
             <h1 class="heading-level-1">Valentine's Day Sonnet Generator ❤️</h1>
         </div>
         <p class="body-text-1 u-normal u-margin-block-start-8 body-text-container">
-            Enter your partner's name and receive a sonnet dedicated to them, courtesy of Appwrite and OpenAI
+            Enter your partner's name and receive a sonnet dedicated to them, courtesy of Appwrite, OpenAI, and Resend
         </p>
         </div>
     </div>
