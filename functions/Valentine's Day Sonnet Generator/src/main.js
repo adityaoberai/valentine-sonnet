@@ -14,10 +14,7 @@ export default async ({ req, res, log, error }) => {
   }
 
   else if (req.method === 'GET') {
-    return res.send(getStaticFile('index.html'), 200, {
-      'Access-Control-Allow-Origin': process.env.CORS_ORIGIN,
-      'Content-Type': 'text/html',
-    });
+    return res.redirect("https://lovesonnet.online", 302);
   }
 
   else if (req.method === 'POST') {
