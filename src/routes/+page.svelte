@@ -104,7 +104,7 @@
                 </div>
 
                 <form on:submit={saveMessage} class="card u-flex u-flex-vertical u-gap-12">
-                    <h2 class="eyebrow-heading-2">Send the sonnet to your beloved</h2>
+                    <h2 class="eyebrow-heading-2">Send the sonnet to your beloved:</h2>
                     
                     <h3 class="eyebrow-heading-3">Your Details</h3>
                     <div class="u-flex u-gap-8 u-flex-wrap u-width-full-line">
@@ -119,6 +119,8 @@
                     </div>
                     
                     <button class="button">{sendingMessage}</button>
+
+                    <p class="u-color-text-gray">ℹ️ All sonnets will be emailed on Feb 14th</p>
                 </form>
             {/if}
         </div>

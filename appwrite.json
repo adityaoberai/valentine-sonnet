@@ -72,7 +72,7 @@
                 "documents.write"
             ],
             "schedule": "0 * 14 2 *",
-            "timeout": 15,
+            "timeout": 60,
             "enabled": true,
             "logging": true,
             "entrypoint": "src/main.js",
