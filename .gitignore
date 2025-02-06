@@ -2,6 +2,7 @@ node_modules
 
 # Output
 .output
+.appwrite
 .vercel
 .netlify
 .wrangler
