@@ -43,7 +43,7 @@ export function generateValentineEmail(sonnet, senderName, receiverName) {
                 color: #555;
                 font-size: clamp(14px, 3vw, 16px);
                 margin: 20px auto;
-                white-space: pre-wrap;
+                white-space: pre-line;
                 text-align: center;
             }
             .cta-button {
@@ -52,7 +52,7 @@ export function generateValentineEmail(sonnet, senderName, receiverName) {
                 margin: 20px auto;
                 padding: 12px;
                 background-color: #ff4081;
-                color: white;
+                color: #ffffff;
                 font-size: clamp(16px, 3.5vw, 20px);
                 border-radius: 5px;
                 width: 80%;
@@ -65,9 +65,13 @@ export function generateValentineEmail(sonnet, senderName, receiverName) {
                 color: #777;
                 text-align: center;
             }
+            .footer p {
+                font-size: clamp(12px, 2.5vw, 14px);
+            }
             .footer a {
                 color: #d63384;
                 text-decoration: none;
+                font-size: clamp(12px, 2.5vw, 14px);
             }
             @media screen and (max-width: 600px) {
                 .container {
