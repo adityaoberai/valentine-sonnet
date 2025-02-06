@@ -61,7 +61,11 @@
             sending = false;
             setTimeout(() => {
                 sendingMessage = 'Send Sonnet';
-            }, 2000);
+                senderName = '';
+                senderEmail = '';
+                receiverName = '';
+                receiverEmail = '';
+            }, 3000);
         }
     }
 </script>
