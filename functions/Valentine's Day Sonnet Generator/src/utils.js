@@ -12,7 +12,7 @@ const staticFolder = path.join(__dirname, '../static');
  * @returns {string} Contents of static/{fileName}
  */
 export function getStaticFile(fileName) {
-  return fs.readFileSync(path.join(staticFolder, fileName)).toString();
+	return fs.readFileSync(path.join(staticFolder, fileName)).toString();
 }
 
 /**
@@ -22,13 +22,13 @@ export function getStaticFile(fileName) {
  * @throws {Error}
  */
 export function throwIfMissing(obj, keys) {
-  const missing = [];
-  for (let key of keys) {
-    if (!(key in obj) || !obj[key]) {
-      missing.push(key);
-    }
-  }
-  if (missing.length > 0) {
-    throw new Error(`Missing required fields: ${missing.join(', ')}`);
-  }
+	const missing = [];
+	for (let key of keys) {
+		if (!(key in obj) || !obj[key]) {
+			missing.push(key);
+		}
+	}
+	if (missing.length > 0) {
+		throw new Error(`Missing required fields: ${missing.join(', ')}`);
+	}
 }

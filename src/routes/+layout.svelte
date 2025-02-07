@@ -1,12 +1,12 @@
 <script>
-    import '@appwrite.io/pink';
-    import '@appwrite.io/pink-icons';
+	import '@appwrite.io/pink';
+	import '@appwrite.io/pink-icons';
 
-    let { children } = $props();
+	let { children } = $props();
 </script>
 
 <svelte:head>
-    <title>Valentine's Day Sonnet Generator</title>
+	<title>Valentine's Day Sonnet Generator</title>
 </svelte:head>
 
 {@render children()}

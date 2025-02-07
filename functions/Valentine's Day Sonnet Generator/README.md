@@ -14,9 +14,9 @@ Query the model for a completion.
 
 **Parameters**
 
-| Name         | Description                          | Location | Type               | Sample Value                  |
-| ------------ | ------------------------------------ | -------- | ------------------ | ----------------------------- |
-| Content-Type | The content type of the request body | Header   | `application/json` | N/A                           |
+| Name         | Description                          | Location | Type               | Sample Value    |
+| ------------ | ------------------------------------ | -------- | ------------------ | --------------- |
+| Content-Type | The content type of the request body | Header   | `application/json` | N/A             |
 | name         | Name of a person / your partner      | Body     | String             | `Aditya Oberai` |
 
 Sample `200` Response:
@@ -25,8 +25,8 @@ Response from the model.
 
 ```json
 {
-    "ok": true,
-    "completion": "Upon this day, so sweet in February,\nA dedication to Appwrite we lay,\nIn code so light, it feels as airy,\nIt brings a smile each time I say.\n\nAppwrite, my heart does beat to your rhythm,\nWritten in code, so eloquently,\nWith every function, feature or system,\nA source of joy, so frequently.\n\nOpen-source and friendly, oh so bright,\nIn your APIs, my heart does dwell,\nIn every image, text, or byte,\nA love story ours could tell.\n\nSo this Valentine's, I give my heart, not out of spite,\nBut in admiration and love for you, dear Appwrite."
+	"ok": true,
+	"completion": "Upon this day, so sweet in February,\nA dedication to Appwrite we lay,\nIn code so light, it feels as airy,\nIt brings a smile each time I say.\n\nAppwrite, my heart does beat to your rhythm,\nWritten in code, so eloquently,\nWith every function, feature or system,\nA source of joy, so frequently.\n\nOpen-source and friendly, oh so bright,\nIn your APIs, my heart does dwell,\nIn every image, text, or byte,\nA love story ours could tell.\n\nSo this Valentine's, I give my heart, not out of spite,\nBut in admiration and love for you, dear Appwrite."
 }
 ```
 
@@ -36,8 +36,8 @@ Response when the request body is missing.
 
 ```json
 {
-  "ok": false,
-  "error": "Missing body with a prompt."
+	"ok": false,
+	"error": "Missing body with a prompt."
 }
 ```
 
@@ -47,8 +47,8 @@ Response when the model fails to respond.
 
 ```json
 {
-  "ok": false,
-  "error": "Failed to query model."
+	"ok": false,
+	"error": "Failed to query model."
 }
 ```
 

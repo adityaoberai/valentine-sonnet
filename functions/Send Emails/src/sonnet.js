@@ -1,5 +1,5 @@
 export function generateValentineEmail(sonnet, senderName, receiverName) {
-    return `<!DOCTYPE html>
+  return `<!DOCTYPE html>
     <html>
     <head>
         <meta charset="UTF-8">
