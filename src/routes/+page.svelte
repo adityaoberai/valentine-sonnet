@@ -13,33 +13,33 @@
 	let sendingMessage = 'Send Sonnet';
 	let sending = false;
 
-    let messageId = '';
+	let messageId = '';
 
-    function addShareLink() {
-        deleteShareLink();
-        const shareLinkButton = document.createElement('a');
-        shareLinkButton.innerHTML = 'Share Link';
-        shareLinkButton.classList.add('button');
-        shareLinkButton.target = '_blank';
-        shareLinkButton.href = `./${messageId}`;
-        shareLink.target = '_blank';
-        document.getElementById('sonnetButtons').appendChild(shareLinkButton);
-    }
+	function addShareLink() {
+		deleteShareLink();
+		const shareLinkButton = document.createElement('a');
+		shareLinkButton.innerHTML = 'Share Link';
+		shareLinkButton.classList.add('button');
+		shareLinkButton.target = '_blank';
+		shareLinkButton.href = `./${messageId}`;
+		shareLink.target = '_blank';
+		document.getElementById('sonnetButtons').appendChild(shareLinkButton);
+	}
 
-    function deleteShareLink() {
-        try {
-            document.getElementById('sonnetButtons').removeChild(document.getElementsByTagName('a')[0]);
-        } catch (err) {
-            console.error(err.message);
-        }
-    }
+	function deleteShareLink() {
+		try {
+			document.getElementById('sonnetButtons').removeChild(document.getElementsByTagName('a')[0]);
+		} catch (err) {
+			console.error(err.message);
+		}
+	}
 
 	async function generateSonnet() {
 		if (!name) return;
 		loading = true;
 		sonnet = '';
-        messageId = '';
-        deleteShareLink();
+		messageId = '';
+		deleteShareLink();
 		try {
 			const response = await fetch(`${PUBLIC_APPWRITE_FUNCTION_URL}/`, {
 				method: 'POST',
@@ -78,13 +78,13 @@
 				throw new Error(json.error);
 			} else {
 				sendingMessage = 'Sent!';
-                messageId = json.messageId;
+				messageId = json.messageId;
 			}
 		} catch (err) {
 			console.error(err.message);
 		} finally {
 			sending = false;
-            addShareLink();
+			addShareLink();
 			setTimeout(() => {
 				sendingMessage = 'Send Sonnet';
 				senderName = '';
@@ -178,10 +178,9 @@
 						/>
 					</div>
 
-                    <div id="sonnetButtons" class="u-flex u-gap-8 u-width-full-line">
-                        <button type="submit" class="button">{sendingMessage}</button>
-                    </div>
-					
+					<div id="sonnetButtons" class="u-flex u-gap-8 u-width-full-line">
+						<button type="submit" class="button">{sendingMessage}</button>
+					</div>
 
 					<p class="u-color-text-gray">ℹ️ All sonnets will be emailed on Feb 14th</p>
 				</form>

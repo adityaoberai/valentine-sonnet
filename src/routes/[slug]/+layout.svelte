@@ -1,6 +1,6 @@
 <script>
-    import './sonnet.css';
-    const { children } = $props();
+	import './sonnet.css';
+	const { children } = $props();
 </script>
 
 {@render children()}

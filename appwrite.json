@@ -45,7 +45,7 @@
 			"enabled": true,
 			"logging": true,
 			"runtime": "node-18.0",
-			"scopes": ["documents.read","documents.write"],
+			"scopes": ["documents.read", "documents.write"],
 			"events": [],
 			"schedule": "",
 			"timeout": 15,

@@ -3,7 +3,6 @@ import { OpenAI } from 'openai';
 import { setupAppwriteDatabases, throwIfMissing } from './utils.js';
 
 export default async ({ req, res, log, error }) => {
-
 	if (req.method === 'OPTIONS') {
 		return res.send(null, 204, {
 			'Access-Control-Allow-Origin': process.env.CORS_ORIGIN,
@@ -11,11 +10,10 @@ export default async ({ req, res, log, error }) => {
 			'Access-Control-Allow-Headers': 'Content-Type'
 		});
 	} else if (req.method === 'GET') {
-		if(req.path === '/'){
+		if (req.path === '/') {
 			return res.redirect('https://lovesonnet.online', 302);
-		}
-		else {
-			const slug = req.path.replace('/', '');		
+		} else {
+			const slug = req.path.replace('/', '');
 			const appwriteDatabases = setupAppwriteDatabases(req);
 			try {
 				throwIfMissing(process.env, ['APPWRITE_DB_ID', 'APPWRITE_COLL_ID', 'CORS_ORIGIN']);
