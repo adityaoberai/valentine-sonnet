@@ -30,10 +30,9 @@ export default async ({ req, res, log, error }) => {
     ]
   );
 
-  console.log(messagesToSend);
-
   for (const message of messagesToSend.documents) {
     try {
+      log(message);
       const { senderName, senderEmail, receiverName, receiverEmail, sonnet } =
         message;
       const resend = new Resend(process.env.RESEND_API_KEY);

@@ -1,9 +1,8 @@
-import { Client, Databases, ID } from 'node-appwrite';
+import { ID } from 'node-appwrite';
 import { OpenAI } from 'openai';
-import { getStaticFile, throwIfMissing } from './utils.js';
+import { setupAppwriteDatabases, throwIfMissing } from './utils.js';
 
 export default async ({ req, res, log, error }) => {
-	throwIfMissing(process.env, ['OPENAI_API_KEY', 'CORS_ORIGIN']);
 
 	if (req.method === 'OPTIONS') {
 		return res.send(null, 204, {
@@ -12,11 +11,34 @@ export default async ({ req, res, log, error }) => {
 			'Access-Control-Allow-Headers': 'Content-Type'
 		});
 	} else if (req.method === 'GET') {
-		return res.redirect('https://lovesonnet.online', 302);
+		if(req.path === '/'){
+			return res.redirect('https://lovesonnet.online', 302);
+		}
+		else {
+			const slug = req.path.replace('/', '');		
+			const appwriteDatabases = setupAppwriteDatabases(req);
+			try {
+				throwIfMissing(process.env, ['APPWRITE_DB_ID', 'APPWRITE_COLL_ID', 'CORS_ORIGIN']);
+				const message = await appwriteDatabases.getDocument(
+					process.env.APPWRITE_DB_ID,
+					process.env.APPWRITE_COLL_ID,
+					slug
+				);
+				return res.json({ ok: true, message }, 200, {
+					'Access-Control-Allow-Origin': process.env.CORS_ORIGIN
+				});
+			} catch (err) {
+				error(err.message);
+				return res.json({ ok: false, error: err.message }, 404, {
+					'Access-Control-Allow-Origin': process.env.CORS_ORIGIN
+				});
+			}
+		}
 	} else if (req.method === 'POST') {
 		if (req.path === '/') {
 			try {
 				throwIfMissing(req.bodyJson, ['name']);
+				throwIfMissing(process.env, ['OPENAI_API_KEY', 'CORS_ORIGIN']);
 			} catch (err) {
 				error(err.message);
 				return res.json({ ok: false, error: err.message }, 400, {
@@ -59,20 +81,15 @@ export default async ({ req, res, log, error }) => {
 					'receiverEmail',
 					'sonnet'
 				]);
-				throwIfMissing(process.env, ['APPWRITE_DB_ID', 'APPWRITE_COLLECTION_ID']);
+				throwIfMissing(process.env, ['APPWRITE_DB_ID', 'APPWRITE_COLL_ID', 'CORS_ORIGIN']);
 
-				const appwriteClient = new Client()
-					.setEndpoint(process.env.APPWRITE_FUNCTION_API_ENDPOINT)
-					.setProject(process.env.APPWRITE_FUNCTION_PROJECT_ID)
-					.setKey(req.headers['x-appwrite-key']);
-
-				const appwriteDatabases = new Databases(appwriteClient);
+				const appwriteDatabases = setupAppwriteDatabases(req);
 
 				const { senderName, senderEmail, receiverName, receiverEmail, sonnet } = req.bodyJson;
 
-				await appwriteDatabases.createDocument(
+				const savedMessage = await appwriteDatabases.createDocument(
 					process.env.APPWRITE_DB_ID,
-					process.env.APPWRITE_COLLECTION_ID,
+					process.env.APPWRITE_COLL_ID,
 					ID.unique(),
 					{
 						senderName,
@@ -85,7 +102,7 @@ export default async ({ req, res, log, error }) => {
 					}
 				);
 
-				return res.json({ ok: true }, 200, {
+				return res.json({ ok: true, messageId: savedMessage.$id }, 200, {
 					'Access-Control-Allow-Origin': process.env.CORS_ORIGIN
 				});
 			} catch (err) {

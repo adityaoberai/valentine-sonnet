@@ -1,18 +1,12 @@
-import path from 'path';
-import { fileURLToPath } from 'url';
-import fs from 'fs';
+import { Client, Databases } from 'node-appwrite';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const staticFolder = path.join(__dirname, '../static');
+export function setupAppwriteDatabases(req) {
+	const appwriteClient = new Client()
+		.setEndpoint(process.env.APPWRITE_FUNCTION_API_ENDPOINT)
+		.setProject(process.env.APPWRITE_FUNCTION_PROJECT_ID)
+		.setKey(req.headers['x-appwrite-key']);
 
-/**
- * Returns the contents of a file in the static folder
- * @param {string} fileName
- * @returns {string} Contents of static/{fileName}
- */
-export function getStaticFile(fileName) {
-	return fs.readFileSync(path.join(staticFolder, fileName)).toString();
+	return new Databases(appwriteClient);
 }
 
 /**
