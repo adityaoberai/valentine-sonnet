@@ -125,8 +125,7 @@
 				<h1 class="heading-level-1">Valentine's Day Sonnet Generator ❤️</h1>
 			</div>
 			<p class="body-text-1 u-normal u-margin-block-start-8 body-text-container">
-				Enter your partner's name and receive a sonnet dedicated to them, courtesy of Appwrite,
-				OpenAI, and Resend
+				Enter your partner's name and send a sonnet dedicated to them on February 14th
 			</p>
 		</div>
 	</div>
