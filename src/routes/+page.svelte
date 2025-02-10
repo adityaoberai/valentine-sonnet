@@ -22,7 +22,6 @@
 		shareLinkButton.classList.add('button');
 		shareLinkButton.target = '_blank';
 		shareLinkButton.href = `./${messageId}`;
-		shareLink.target = '_blank';
 		document.getElementById('sonnetButtons').appendChild(shareLinkButton);
 	}
 
