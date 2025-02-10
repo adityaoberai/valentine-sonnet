@@ -14,11 +14,30 @@
 	let sending = false;
 
 	let messageId = '';
+	let shareLinkAvailable = false;
+
+	function hideSonnetForm() {
+		try {
+			shareLinkAvailable = true;
+		} catch (err) {
+			console.error(err.message);
+		}
+	}
+
+	function unhideSonnetForm() {
+		try {
+			shareLinkAvailable = false;
+		} catch (err) {
+			console.error(err.message);
+		}
+	}
 
 	function addShareLink() {
 		deleteShareLink();
+		hideSonnetForm();
+
 		const shareLinkButton = document.createElement('a');
-		shareLinkButton.innerHTML = 'Share Link';
+		shareLinkButton.innerHTML = 'Share Link Of Sonnet';
 		shareLinkButton.classList.add('button');
 		shareLinkButton.target = '_blank';
 		shareLinkButton.href = `./${messageId}`;
@@ -26,7 +45,11 @@
 	}
 
 	function deleteShareLink() {
+		unhideSonnetForm();
 		try {
+			if (document.getElementById('sonnetButtons').children.length <= 1) return;
+
+			
 			document.getElementById('sonnetButtons').removeChild(document.getElementsByTagName('a')[0]);
 		} catch (err) {
 			console.error(err.message);
@@ -127,22 +150,23 @@
 			</form>
 
 			{#if sonnet}
-				<div class="u-flex u-flex-vertical u-gap-12">
-					<div class="u-flex u-flex-vertical u-gap-12 card">
-						<div class="u-flex u-gap-12">
-							<h2 class="eyebrow-heading-2">Cupid:</h2>
-						</div>
-						<div class="text-container">
-							<p class="u-color-text-gray sonnet-text">{sonnet}</p>
-						</div>
+			<div class="u-flex u-flex-vertical u-gap-12">
+				<div class="u-flex u-flex-vertical u-gap-12 card">
+					<div class="u-flex u-gap-12">
+						<h2 class="eyebrow-heading-2">Cupid:</h2>
+					</div>
+					<div class="text-container">
+						<p class="u-color-text-gray sonnet-text">{sonnet}</p>
 					</div>
 				</div>
+			</div>
 
-				<form on:submit={saveMessage} class="card u-flex u-flex-vertical u-gap-12">
-					<h2 class="eyebrow-heading-2">Send the sonnet to your beloved:</h2>
-
+			<form on:submit={saveMessage} class="card u-flex u-flex-vertical u-gap-12">
+				<h2 class="eyebrow-heading-2">Send the sonnet to your beloved:</h2>
+				{#if !shareLinkAvailable}
+				<div class="u-flex u-flex-vertical u-gap-8 u-width-full-line sonnetForm">
 					<h3 class="eyebrow-heading-3">Your Details</h3>
-					<div class="u-flex u-gap-8 u-flex-wrap u-width-full-line">
+					<div class="u-flex u-flex-wrap u-gap-8 u-width-full-line">
 						<input
 							class="u-width-fit-content"
 							bind:value={senderName}
@@ -158,9 +182,12 @@
 							required
 						/>
 					</div>
+				</div>
 
+				
+				<div class="u-flex u-flex-vertical u-gap-8 u-width-full-line sonnetForm">
 					<h3 class="eyebrow-heading-3">Receiver's Details</h3>
-					<div class="u-flex u-gap-8 u-width-full-line">
+					<div class="u-flex u-flex-wrap u-gap-8 u-width-full-line">
 						<input
 							class="u-width-fit-content"
 							bind:value={receiverName}
@@ -176,13 +203,16 @@
 							required
 						/>
 					</div>
+				</div>
+				{/if}
+				<div id="sonnetButtons" class="u-flex u-gap-8 u-width-full-line">
+					{#if !shareLinkAvailable}
+					<button type="submit" class="button sonnetForm">{sendingMessage}</button>
+					{/if}
+				</div>
 
-					<div id="sonnetButtons" class="u-flex u-gap-8 u-width-full-line">
-						<button type="submit" class="button">{sendingMessage}</button>
-					</div>
-
-					<p class="u-color-text-gray">ℹ️ All sonnets will be emailed on Feb 14th</p>
-				</form>
+				<p class="u-color-text-gray">ℹ️ All sonnets will be emailed on Feb 14th</p>
+			</form>
 			{/if}
 		</div>
 	</div>
