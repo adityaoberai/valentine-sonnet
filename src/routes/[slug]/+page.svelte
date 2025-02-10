@@ -28,17 +28,20 @@
 		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 		margin: auto;
 	}
+
 	h1 {
 		color: #d63384;
 		font-size: 36px;
 		margin-bottom: 20px;
 	}
+
 	p {
 		font-size: 18px;
 		color: #333;
 		line-height: 1.8;
 		margin: 15px 0;
 	}
+
 	.sonnet {
 		font-style: italic;
 		color: #555;
@@ -46,6 +49,7 @@
 		margin: 30px auto;
 		white-space: pre-line;
 	}
+
 	.cta-button {
 		display: inline-block;
 		text-decoration: none;

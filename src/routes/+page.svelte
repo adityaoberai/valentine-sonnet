@@ -49,7 +49,6 @@
 		try {
 			if (document.getElementById('sonnetButtons').children.length <= 1) return;
 
-			
 			document.getElementById('sonnetButtons').removeChild(document.getElementsByTagName('a')[0]);
 		} catch (err) {
 			console.error(err.message);
@@ -149,69 +148,68 @@
 			</form>
 
 			{#if sonnet}
-			<div class="u-flex u-flex-vertical u-gap-12">
-				<div class="u-flex u-flex-vertical u-gap-12 card">
-					<div class="u-flex u-gap-12">
-						<h2 class="eyebrow-heading-2">Cupid:</h2>
-					</div>
-					<div class="text-container">
-						<p class="u-color-text-gray sonnet-text">{sonnet}</p>
-					</div>
-				</div>
-			</div>
-
-			<form on:submit={saveMessage} class="card u-flex u-flex-vertical u-gap-12">
-				<h2 class="eyebrow-heading-2">Send the sonnet to your beloved:</h2>
-				{#if !shareLinkAvailable}
-				<div class="u-flex u-flex-vertical u-gap-8 u-width-full-line sonnetForm">
-					<h3 class="eyebrow-heading-3">Your Details</h3>
-					<div class="u-flex u-flex-wrap u-gap-8 u-width-full-line">
-						<input
-							class="u-width-fit-content"
-							bind:value={senderName}
-							type="text"
-							placeholder="Your Name"
-							required
-						/>
-						<input
-							class="u-width-fit-content"
-							bind:value={senderEmail}
-							type="email"
-							placeholder="Your Email"
-							required
-						/>
+				<div class="u-flex u-flex-vertical u-gap-12">
+					<div class="u-flex u-flex-vertical u-gap-12 card">
+						<div class="u-flex u-gap-12">
+							<h2 class="eyebrow-heading-2">Cupid:</h2>
+						</div>
+						<div class="text-container">
+							<p class="u-color-text-gray sonnet-text">{sonnet}</p>
+						</div>
 					</div>
 				</div>
 
-				
-				<div class="u-flex u-flex-vertical u-gap-8 u-width-full-line sonnetForm">
-					<h3 class="eyebrow-heading-3">Receiver's Details</h3>
-					<div class="u-flex u-flex-wrap u-gap-8 u-width-full-line">
-						<input
-							class="u-width-fit-content"
-							bind:value={receiverName}
-							type="text"
-							placeholder="Receiver's Name"
-							required
-						/>
-						<input
-							class="u-width-fit-content"
-							bind:value={receiverEmail}
-							type="email"
-							placeholder="Receiver's Email"
-							required
-						/>
-					</div>
-				</div>
-				{/if}
-				<div id="sonnetButtons" class="u-flex u-gap-8 u-width-full-line">
+				<form on:submit={saveMessage} class="card u-flex u-flex-vertical u-gap-12">
+					<h2 class="eyebrow-heading-2">Send the sonnet to your beloved:</h2>
 					{#if !shareLinkAvailable}
-					<button type="submit" class="button sonnetForm">{sendingMessage}</button>
-					{/if}
-				</div>
+						<div class="u-flex u-flex-vertical u-gap-8 u-width-full-line sonnetForm">
+							<h3 class="eyebrow-heading-3">Your Details</h3>
+							<div class="u-flex u-flex-wrap u-gap-8 u-width-full-line">
+								<input
+									class="u-width-fit-content"
+									bind:value={senderName}
+									type="text"
+									placeholder="Your Name"
+									required
+								/>
+								<input
+									class="u-width-fit-content"
+									bind:value={senderEmail}
+									type="email"
+									placeholder="Your Email"
+									required
+								/>
+							</div>
+						</div>
 
-				<p class="u-color-text-gray">ℹ️ All sonnets will be emailed on Feb 14th</p>
-			</form>
+						<div class="u-flex u-flex-vertical u-gap-8 u-width-full-line sonnetForm">
+							<h3 class="eyebrow-heading-3">Receiver's Details</h3>
+							<div class="u-flex u-flex-wrap u-gap-8 u-width-full-line">
+								<input
+									class="u-width-fit-content"
+									bind:value={receiverName}
+									type="text"
+									placeholder="Receiver's Name"
+									required
+								/>
+								<input
+									class="u-width-fit-content"
+									bind:value={receiverEmail}
+									type="email"
+									placeholder="Receiver's Email"
+									required
+								/>
+							</div>
+						</div>
+					{/if}
+					<div id="sonnetButtons" class="u-flex u-gap-8 u-width-full-line">
+						{#if !shareLinkAvailable}
+							<button type="submit" class="button sonnetForm">{sendingMessage}</button>
+						{/if}
+					</div>
+
+					<p class="u-color-text-gray">ℹ️ All sonnets will be emailed on Feb 14th</p>
+				</form>
 			{/if}
 		</div>
 	</div>
