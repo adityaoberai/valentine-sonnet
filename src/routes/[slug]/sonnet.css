@@ -13,77 +13,89 @@ body {
 }
 
 .container {
-    max-width: 95%;
-    width: max-content;
-    height: auto;
-    background: #fff;
-    padding: 1.5rem;
-    border-radius: 1rem;
-    box-shadow: 0 10px 30px rgba(214, 51, 132, 0.15);
-    margin: 2rem auto;
-    transition: all 0.3s ease-in-out;
-    border: 2px solid #ffb3b3;
-    position: relative;
-    animation: fadeIn 0.8s ease-in;
+	max-width: 95%;
+	width: max-content;
+	height: auto;
+	background: #fff;
+	padding: 1.5rem;
+	border-radius: 1rem;
+	box-shadow: 0 10px 30px rgba(214, 51, 132, 0.15);
+	margin: 2rem auto;
+	transition: all 0.3s ease-in-out;
+	border: 2px solid #ffb3b3;
+	position: relative;
+	animation: fadeIn 0.8s ease-in;
 }
 
 .heart-decoration {
-    position: absolute;
-    top: -15px;
-    right: -15px;
-    width: 30px;
-    height: 30px;
-    background: #d63384;
-    transform: rotate(45deg);
+	position: absolute;
+	top: -15px;
+	right: -15px;
+	width: 30px;
+	height: 30px;
+	background: #d63384;
+	transform: rotate(45deg);
 	display: none;
 }
 
 .heart-decoration::before,
 .heart-decoration::after {
-    content: '';
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    background: #d63384;
-    border-radius: 50%;
+	content: '';
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	background: #d63384;
+	border-radius: 50%;
 }
 
 .heart-decoration::before {
-    left: -15px;
+	left: -15px;
 }
 
 .heart-decoration::after {
-    top: -15px;
+	top: -15px;
 	right: 0px;
 }
 
 h1 {
-    color: #d63384;
-    font-size: 2rem;
-    font-family: 'Playfair Display', serif;
-    text-shadow: 2px 2px 4px rgba(214, 51, 132, 0.2);
-    margin-bottom: 2rem;
+	color: #d63384;
+	font-size: 2rem;
+	font-family: 'Playfair Display', serif;
+	text-shadow: 2px 2px 4px rgba(214, 51, 132, 0.2);
+	margin-bottom: 2rem;
 }
 
 .sonnet {
-    font-style: italic;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem;
-    margin: 2rem auto;
-    white-space: pre-line;
-    color: #555;
-    letter-spacing: 0.5px;
-    animation: slideIn 1s ease-out 0.5s both;
+	font-style: italic;
+	font-family: 'Cormorant Garamond', serif;
+	font-size: 1.2rem;
+	margin: 2rem auto;
+	white-space: pre-line;
+	color: #555;
+	letter-spacing: 0.5px;
+	animation: slideIn 1s ease-out 0.5s both;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
 @keyframes slideIn {
-    from { opacity: 0; transform: translateX(-20px); }
-    to { opacity: 1; transform: translateX(0); }
+	from {
+		opacity: 0;
+		transform: translateX(-20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
 }
 
 a {

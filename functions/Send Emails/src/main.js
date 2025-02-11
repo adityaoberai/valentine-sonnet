@@ -33,15 +33,26 @@ export default async ({ req, res, log, error }) => {
   for (const message of messagesToSend.documents) {
     try {
       log(message);
-      const { $id, senderName, senderEmail, receiverName, receiverEmail, sonnet } =
-        message;
+      const {
+        $id,
+        senderName,
+        senderEmail,
+        receiverName,
+        receiverEmail,
+        sonnet,
+      } = message;
       const resend = new Resend(process.env.RESEND_API_KEY);
       const { data, error } = await resend.emails.send({
         from: `Valentine's Day <valentine@mail.lovesonnet.online>`,
         to: `${receiverName} <${receiverEmail}>`,
         replyTo: `${senderEmail}`,
         subject: `${senderName} has sent you a Valentine's Day Sonnet!`,
-        html: generateValentineEmail($id, sonnet.trim(), senderName, receiverName),
+        html: generateValentineEmail(
+          $id,
+          sonnet.trim(),
+          senderName,
+          receiverName
+        ),
       });
 
       if (error) {

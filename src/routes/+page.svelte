@@ -219,8 +219,9 @@
 							<span class="text">Important Note</span>
 							<span class="tooltip-popup" role="tooltip">
 								All sonnets will be emailed on Feb 14th.
-								<br/><br/>
-								In case your partner doesn't see an email in their inbox, please ensure they check their spam folder.
+								<br /><br />
+								In case your partner doesn't see an email in their inbox, please ensure they check their
+								spam folder.
 							</span>
 						</button>
 					</div>
