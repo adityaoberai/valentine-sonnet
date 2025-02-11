@@ -1,46 +1,26 @@
-# Send Emails
+# ✉️ Send Emails
+
+Send emails every minute on Feb 14th
 
 ## 🧰 Usage
 
-### GET /ping
+Runs on a CRON schedule
 
-- Returns a "Pong" message.
-
-**Response**
-
-Sample `200` Response:
-
-```text
-Pong
-```
-
-### GET, POST, PUT, PATCH, DELETE /
-
-- Returns a "Learn More" JSON response.
-
-**Response**
-
-Sample `200` Response:
-
-```json
-{
-  "motto": "Build like a team of hundreds_",
-  "learn": "https://appwrite.io/docs",
-  "connect": "https://appwrite.io/discord",
-  "getInspired": "https://builtwith.appwrite.io"
-}
-```
+Returns an empty response
 
 ## ⚙️ Configuration
 
-| Setting           | Value         |
-| ----------------- | ------------- |
-| Runtime           | Node (18.0)   |
-| Entrypoint        | `src/main.js` |
-| Build Commands    | `npm install` |
-| Permissions       | `any`         |
-| Timeout (Seconds) | 15            |
+| Setting           | Value          |
+| ----------------- | -------------- |
+| Runtime           | Node (18.0)    |
+| Entrypoint        | `src/main.js`  |
+| Build Commands    | `npm install`  |
+| Permissions       | `any`          |
+| Timeout (Seconds) | 59             |
+| Schedule          | `*/1 * 14 2 *` |
 
 ## 🔒 Environment Variables
 
-No environment variables required.
+- `RESEND_API_KEY`: API key to send emails using Resend
+- `APPWRITE_DB_ID`: ID of your Appwrite Database
+- `APPWRITE_COLL_ID`: ID of your Appwrite Collection

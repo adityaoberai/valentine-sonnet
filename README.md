@@ -1,38 +1,42 @@
-# sv
+# 💝 Valentine's Day Sonnet Generator
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+> Create and schedule personalized Valentine's Day sonnets with AI-powered romance.
 
-## Creating a project
+## ✨ Features
 
-If you're seeing this, you've probably already done this step. Congrats!
+- 📝 Generate romantic sonnets using AI
+- 📅 Schedule email delivery for Valentine's Day
+- 🔗 Share sonnets via unique links
+- 📱 Mobile-responsive design
+- 🚀 Built with modern web technologies
 
-```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## 🚀 Quick Start
 
 ```bash
+# Clone the repository
+git clone https://github.com/yourusername/valentine-sonnet.git
+cd valentine-sonnet
+
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
+## 🔧 Configuration
 
-To create a production version of your app:
+Create a `.env` file with:
 
-```bash
-npm run build
+```sh
+PUBLIC_APPWRITE_FUNCTION_URL=your-valentines-day-function-url
 ```
 
-You can preview the production build with `npm run preview`.
+## 🛠️ Tech Stack
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+- Frontend: SvelteKit
+- Backend: Appwrite Functions and Databases
+- AI: OpenAI GPT-4o
+- Email: Resend
+- UI: Pink Design System + custom CSS
+

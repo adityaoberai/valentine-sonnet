@@ -1,6 +1,6 @@
 # 🤖 Valentine's Day Sonnet Generator
 
-Enter a name and generate an sonnet featuring their name for Valentine's Day using GPT-4
+Enter a name and generate an sonnet featuring their name for Valentine's Day using GPT-4o
 
 ## 🧰 Usage
 
@@ -64,22 +64,8 @@ Response when the model fails to respond.
 
 ## 🔒 Environment Variables
 
-### OPENAI_API_KEY
-
-A unique key used to authenticate with the OpenAI API. Please note that this is a paid service and you will be charged for each request made to the API. For more information, see the [OpenAI pricing page](https://openai.com/pricing/).
-
-| Question      | Answer                                                                      |
-| ------------- | --------------------------------------------------------------------------- |
-| Required      | Yes                                                                         |
-| Sample Value  | `sk-wzG...vcy`                                                              |
-| Documentation | [OpenAI Docs](https://platform.openai.com/docs/quickstart/add-your-api-key) |
-
-### OPENAI_MAX_TOKENS
-
-The maximum number of tokens that the OpenAI response should contain. Be aware that OpenAI models read and write a maximum number of tokens per API call, which varies depending on the model. For GPT-3.5-turbo, the limit is 4096 tokens.
-
-| Question      | Answer                                                                                                        |
-| ------------- | ------------------------------------------------------------------------------------------------------------- |
-| Required      | No                                                                                                            |
-| Sample Value  | `512`                                                                                                         |
-| Documentation | [OpenAI: What are tokens?](https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them) |
+- `OPENAI_API_KEY`: OpenAI API key with the right usage tier enabled for GPT-4o
+- `OPENAI_MAX_TOKENS`: Max tokens for the OpenAI API (keep at `512`)
+- `CORS_ORIGIN`: URL of the frontend project
+- `APPWRITE_DB_ID`: ID of your Appwrite Database
+- `APPWRITE_COLL_ID`: ID of your Appwrite Collection
