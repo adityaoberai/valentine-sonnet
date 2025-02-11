@@ -208,13 +208,22 @@
 							</div>
 						</div>
 					{/if}
-					<div id="sonnetButtons" class="u-flex u-gap-8 u-width-full-line">
+					<div id="sonnetButtons" class="u-flex u-flex-vertical u-gap-8 u-width-full-line">
 						{#if !shareLinkAvailable}
 							<button type="submit" class="button sonnetForm">{sendingMessage}</button>
 						{/if}
 					</div>
-
-					<p class="u-color-text-gray">ℹ️ All sonnets will be emailed on Feb 14th</p>
+					<div class="u-width-min-content">
+						<button class="tag tooltip">
+							<span class="icon-info" aria-hidden="true"></span>
+							<span class="text">Important Note</span>
+							<span class="tooltip-popup" role="tooltip">
+								All sonnets will be emailed on Feb 14th.
+								<br/><br/>
+								In case your partner doesn't see an email in their inbox, please ensure they check their spam folder.
+							</span>
+						</button>
+					</div>
 				</form>
 			{/if}
 		</div>
