@@ -117,6 +117,12 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Valentine's Day Sonnet Generator</title>
+	<meta property="og:title" content="Valentine's Day Sonnet Generator" />
+	<meta property="twitter:title" content="Valentine's Day Sonnet Generator" />
+</svelte:head>
+
 <main class="main-content">
 	<div class="top-cover u-padding-block-end-56">
 		<div class="container">
