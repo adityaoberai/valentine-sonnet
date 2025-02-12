@@ -10,7 +10,7 @@
 	let senderEmail = '';
 	let receiverName = '';
 	let receiverEmail = '';
-	let sendingMessage = 'Send Sonnet';
+	let sendingMessage = 'Schedule Sonnet';
 	let sending = false;
 
 	let messageId = '';
@@ -84,7 +84,7 @@
 
 	async function saveMessage() {
 		sending = true;
-		sendingMessage = 'Sending...';
+		sendingMessage = 'Scheduling...';
 
 		try {
 			const response = await fetch(`${PUBLIC_APPWRITE_FUNCTION_URL}/messages`, {
@@ -98,7 +98,7 @@
 			if (!json.ok || json.error) {
 				throw new Error(json.error);
 			} else {
-				sendingMessage = 'Sent!';
+				sendingMessage = 'Scheduled!';
 				messageId = json.messageId;
 			}
 		} catch (err) {
@@ -107,7 +107,7 @@
 			sending = false;
 			addShareLink();
 			setTimeout(() => {
-				sendingMessage = 'Send Sonnet';
+				sendingMessage = 'Schedule Sonnet';
 				senderName = '';
 				senderEmail = '';
 				receiverName = '';
@@ -213,17 +213,32 @@
 							<button type="submit" class="button sonnetForm">{sendingMessage}</button>
 						{/if}
 					</div>
-					<div class="u-width-min-content">
-						<button class="tag tooltip">
-							<span class="icon-info" aria-hidden="true"></span>
-							<span class="text">Important Note</span>
-							<span class="tooltip-popup" role="tooltip">
-								All sonnets will be emailed on Feb 14th.
-								<br /><br />
-								In case your partner doesn't see an email in their inbox, please ensure they check their
-								spam folder.
-							</span>
-						</button>
+					<div class="u-flex u-gap-8">
+						<div class="u-width-min-content">
+							<button class="tag tooltip">
+								<span class="icon-info" aria-hidden="true"></span>
+								<span class="text">Important Note About Emails</span>
+								<span class="tooltip-popup" role="tooltip">
+									All sonnets will be emailed on Feb 14th.
+									<br /><br />
+									In case your partner doesn't see an email in their inbox, please ensure they check
+									their spam folder.
+								</span>
+							</button>
+						</div>
+						<div class="u-width-min-content">
+							<button class="tag tooltip">
+								<span class="icon-info" aria-hidden="true"></span>
+								<span class="text">Share Link To Your Sonnet</span>
+								<span class="tooltip-popup" role="tooltip">
+									After you schedule your sonnet, you will be able to access a private link to an
+									e-card featuring your sonnet.
+									<br /><br />
+									You can then directly share this link with your partner today, or on the 14th (as per
+									your preference).
+								</span>
+							</button>
+						</div>
 					</div>
 				</form>
 			{/if}

@@ -39,4 +39,3 @@ PUBLIC_APPWRITE_FUNCTION_URL=your-valentines-day-function-url
 - AI: OpenAI GPT-4o
 - Email: Resend
 - UI: Pink Design System + custom CSS
-
