@@ -213,11 +213,14 @@
 							<button type="submit" class="button sonnetForm">{sendingMessage}</button>
 						{/if}
 					</div>
-					<div class="u-flex u-gap-8">
+				</form>
+				<div class="card u-flex u-flex-vertical u-gap-24">
+					<h2 class="eyebrow-heading-2">Important Notes:</h2>
+					<div class="u-flex u-flex-wrap u-gap-8">
 						<div class="u-width-min-content">
 							<button class="tag tooltip">
 								<span class="icon-info" aria-hidden="true"></span>
-								<span class="text">Important Note About Emails</span>
+								<span class="text">Scheduling Emails</span>
 								<span class="tooltip-popup" role="tooltip">
 									All sonnets will be emailed on Feb 14th.
 									<br /><br />
@@ -229,7 +232,7 @@
 						<div class="u-width-min-content">
 							<button class="tag tooltip">
 								<span class="icon-info" aria-hidden="true"></span>
-								<span class="text">Share Link To Your Sonnet</span>
+								<span class="text">Share Link Of Sonnet</span>
 								<span class="tooltip-popup" role="tooltip">
 									After you schedule your sonnet, you will be able to access a private link to an
 									e-card featuring your sonnet.
@@ -240,7 +243,7 @@
 							</button>
 						</div>
 					</div>
-				</form>
+				</div>
 			{/if}
 		</div>
 	</div>
