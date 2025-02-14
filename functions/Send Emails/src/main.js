@@ -30,6 +30,10 @@ export default async ({ req, res, log, error }) => {
     ]
   );
 
+  if (messagesToSend.total === 0) {
+    return res.empty();
+  }
+
   for (const message of messagesToSend.documents) {
     try {
       log(message);
@@ -42,7 +46,7 @@ export default async ({ req, res, log, error }) => {
         sonnet,
       } = message;
       const resend = new Resend(process.env.RESEND_API_KEY);
-      const { data, error } = await resend.emails.send({
+      const resendEmail = await resend.emails.send({
         from: `Valentine's Day <valentine@mail.lovesonnet.online>`,
         to: `${receiverName} <${receiverEmail}>`,
         replyTo: `${senderEmail}`,
@@ -55,11 +59,11 @@ export default async ({ req, res, log, error }) => {
         ),
       });
 
-      if (error) {
-        throw new Error(error);
+      if (resendEmail.error) {
+        throw new Error(resendEmail.error.message);
       }
 
-      log(data);
+      log(resendEmail.data);
 
       await databases.updateDocument(
         process.env.APPWRITE_DB_ID,
