@@ -10,7 +10,7 @@
 	let senderEmail = '';
 	let receiverName = '';
 	let receiverEmail = '';
-	let sendingMessage = 'Schedule Sonnet';
+	let sendingMessage = 'Send Sonnet';
 	let sending = false;
 
 	let messageId = '';
@@ -84,7 +84,7 @@
 
 	async function saveMessage() {
 		sending = true;
-		sendingMessage = 'Scheduling...';
+		sendingMessage = 'Sending...';
 
 		try {
 			const response = await fetch(`${PUBLIC_APPWRITE_FUNCTION_URL}/messages`, {
@@ -107,7 +107,7 @@
 			sending = false;
 			addShareLink();
 			setTimeout(() => {
-				sendingMessage = 'Schedule Sonnet';
+				sendingMessage = 'Send Sonnet';
 				senderName = '';
 				senderEmail = '';
 				receiverName = '';
